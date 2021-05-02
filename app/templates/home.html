@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Insurance Bill</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Insurance Bill</h1>
+     <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('predict')}}"method="POST">  
+      <input onclick="personalinfo()" name="personalinfo_" type="button" class="btn btn-primary btn-block btn-large" value="Personal Information"></input>
+        <div id="personalinfodiv">
+            <input type="text" name="Ins_Age" placeholder="Age" required="required" /><br>
+            <input type="text" name="Wt" placeholder="Weight" required="required" /><br>
+            <input type="text" name="Ht" placeholder="Height" required="required" />
+            <!-- <input type="text" name="bmi" placeholder="BMI" required="required" /><br>
+            <input type="text" name="children" placeholder="Children" required="required" /><br>
+            <input type="text" name="smoker" placeholder="Smoker" required="required" /><br>
+            <input type="text" name="region" placeholder="Region" required="required" /><br> -->
+            </div>
+        <br>
+        <input onclick="product()" name="productinfoaa" type="button" class="btn btn-primary btn-block btn-large" value="Product Information"></input>
+        <div id="productdiv">
+          <input type="text" name="Product_Info_1" placeholder="Product Info 1" /><br>
+          <input type="text" name="Product_Info_2" placeholder="Product Info 2" /><br>
+          <input type="text" name="Product_Info_3" placeholder="Product Info 3" /><br>
+          <input type="text" name="Product_Info_4" placeholder="Product Info 4" /><br>
+          <input type="text" name="Product_Info_5" placeholder="Product Info 5" /><br>
+          <input type="text" name="Product_Info_6" placeholder="Product Info 6" /><br>
+          <input type="text" name="Product_Info_7" placeholder="Product Info 7" />
+        </div>
+        <br>
+        <input onclick="employmentinfo()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Employment Info"></input>
+        <div id="employmentinfodiv">
+          <input type="text" name="Employment_Info_1" placeholder="Employment Info 1" /><br>
+          <input type="text" name="Employment_Info_2" placeholder="Employment Info 2" /><br>
+          <input type="text" name="Employment_Info_3" placeholder="Employment Info 3" /><br>
+          <input type="text" name="Employment_Info_4" placeholder="Employment Info 4" /><br>
+          <input type="text" name="Employment_Info_5" placeholder="Employment Info 5" /><br>
+          <input type="text" name="Employment_Info_6" placeholder="Employment Info 6" />
+        </div>
+        <br>
+        <input onclick="insuredinfo()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Insured Info"></input>
+        <div id="insuredinfodiv">
+          <input type="text" name="InsuredInfo_1" placeholder="Insured Info 1" /><br>
+          <input type="text" name="InsuredInfo_2" placeholder="Insured Info 2" /><br>
+          <input type="text" name="InsuredInfo_3" placeholder="Insured Info 3" /><br>
+          <input type="text" name="InsuredInfo_4" placeholder="Insured Info 4" /><br>
+          <input type="text" name="InsuredInfo_5" placeholder="Insured Info 5" /><br>
+          <input type="text" name="InsuredInfo_6" placeholder="Insured Info 6" />
+        </div>
+        <br>
+        <input onclick="insurancehist()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Insurance History "></input>
+        <div id="insurancehistdiv">
+          <input type="text" name="Insurance_History_1" placeholder="Insurance History 1" /><br>
+          <input type="text" name="Insurance_History_2" placeholder="Insurance History 2" /><br>
+          <input type="text" name="Insurance_History_3" placeholder="Insurance History 3" /><br>
+          <input type="text" name="Insurance_History_4" placeholder="Insurance History 4" /><br>
+          <input type="text" name="Insurance_History_5" placeholder="Insurance History 5" /><br>
+          <input type="text" name="Insurance_History_6" placeholder="Insurance History 6" /><br>
+          <input type="text" name="Insurance_History_7" placeholder="Insurance History 7" /><br>
+          <input type="text" name="Insurance_History_8" placeholder="Insurance History 8" /><br>
+          <input type="text" name="Insurance_History_9" placeholder="Insurance History 9" />
+          
+        </div>
+        <br>
+        <input onclick="familyhist()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Family History"></input>
+        <div id="familyhistdiv">
+          <input type="text" name="Family_Hist_1" placeholder="Family History 1" /><br>
+          <input type="text" name="Family_Hist_2" placeholder="Family History 2" /><br>
+          <input type="text" name="Family_Hist_3" placeholder="Family History 3" /><br>
+          <input type="text" name="Family_Hist_4" placeholder="Family History 4" /><br>
+          <input type="text" name="Family_Hist_5" placeholder="Family History 5" />
+          
+        </div>
+        <br>
+        <input onclick="medicalhist()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Medical History"></input>
+        <div id="medicalhistdiv">
+          <input type="text" name="Medical_History_1" placeholder="Medical History 1" /><br>
+          <input type="text" name="Medical_History_2" placeholder="Medical History 2" /><br>
+          <input type="text" name="Medical_History_3" placeholder="Medical History 3" /><br>
+          <input type="text" name="Medical_History_4" placeholder="Medical History 4" /><br>
+          <input type="text" name="Medical_History_5" placeholder="Medical History 5" /><br>
+          <input type="text" name="Medical_History_6" placeholder="Medical History 6" /><br>
+          <input type="text" name="Medical_History_7" placeholder="Medical History 7" /><br>
+          <input type="text" name="Medical_History_8" placeholder="Medical History 8" /><br>
+          <input type="text" name="Medical_History_9" placeholder="Medical History 9" /><br>
+          <input type="text" name="Medical_History_10" placeholder="Medical History 10" /><br>
+
+          <input type="text" name="Medical_History_11" placeholder="Medical History 11" /><br>
+          <input type="text" name="Medical_History_12" placeholder="Medical History 12" /><br>
+          <input type="text" name="Medical_History_13" placeholder="Medical History 13" /><br>
+          <input type="text" name="Medical_History_14" placeholder="Medical History 14" /><br>
+          <input type="text" name="Medical_History_15" placeholder="Medical History 15" /><br>
+          <input type="text" name="Medical_History_16" placeholder="Medical History 16" /><br>
+          <input type="text" name="Medical_History_17" placeholder="Medical History 17" /><br>
+          <input type="text" name="Medical_History_18" placeholder="Medical History 18" /><br>
+          <input type="text" name="Medical_History_19" placeholder="Medical History 19" /><br>
+          <input type="text" name="Medical_History_20" placeholder="Medical History 20" /><br>
+
+          <input type="text" name="Medical_History_21" placeholder="Medical History 21" /><br>
+          <input type="text" name="Medical_History_22" placeholder="Medical History 22" /><br>
+          <input type="text" name="Medical_History_23" placeholder="Medical History 23" /><br>
+          <input type="text" name="Medical_History_24" placeholder="Medical History 24" /><br>
+          <input type="text" name="Medical_History_25" placeholder="Medical History 25" /><br>
+          <input type="text" name="Medical_History_26" placeholder="Medical History 26" /><br>
+          <input type="text" name="Medical_History_27" placeholder="Medical History 27" /><br>
+          <input type="text" name="Medical_History_28" placeholder="Medical History 28" /><br>
+          <input type="text" name="Medical_History_29" placeholder="Medical History 29" /><br>
+          <input type="text" name="Medical_History_20" placeholder="Medical History 30" /><br>
+
+          <input type="text" name="Medical_History_31" placeholder="Medical History 31" /><br>
+          <input type="text" name="Medical_History_32" placeholder="Medical History 32" /><br>
+          <input type="text" name="Medical_History_33" placeholder="Medical History 33" /><br>
+          <input type="text" name="Medical_History_34" placeholder="Medical History 34" /><br>
+          <input type="text" name="Medical_History_35" placeholder="Medical History 35" /><br>
+          <input type="text" name="Medical_History_36" placeholder="Medical History 36" /><br>
+          <input type="text" name="Medical_History_37" placeholder="Medical History 37" /><br>
+          <input type="text" name="Medical_History_38" placeholder="Medical History 38" /><br>
+          <input type="text" name="Medical_History_39" placeholder="Medical History 39" /><br>
+          <input type="text" name="Medical_History_40" placeholder="Medical History 40" /><br>
+
+          <input type="text" name="Medical_History_41" placeholder="Medical History 41" />
+        </div>
+        <br>
+        <input onclick="medicalkey()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Medical Keyword"></input>
+        <div id="medicalkeydiv">
+          <input type="text" name="Medical_Keyword_1" placeholder="Medical Keyword 1" /><br>
+          <input type="text" name="Medical_Keyword_2" placeholder="Medical Keyword 2" /><br>
+          <input type="text" name="Medical_Keyword_3" placeholder="Medical Keyword 3" /><br>
+          <input type="text" name="Medical_Keyword_4" placeholder="Medical Keyword 4" /><br>
+          <input type="text" name="Medical_Keyword_5" placeholder="Medical Keyword 5" /><br>
+          <input type="text" name="Medical_Keyword_6" placeholder="Medical Keyword 6" /><br>
+          <input type="text" name="Medical_Keyword_7" placeholder="Medical Keyword 7" /><br>
+          <input type="text" name="Medical_Keyword_8" placeholder="Medical Keyword 8" /><br>
+          <input type="text" name="Medical_Keyword_9" placeholder="Medical Keyword 9" /><br>
+          <input type="text" name="Medical_Keyword_10" placeholder="Medical Keyword 10" /><br>
+
+          <input type="text" name="Medical_Keyword_11" placeholder="Medical Keyword 11" /><br>
+          <input type="text" name="Medical_Keyword_12" placeholder="Medical Keyword 12" /><br>
+          <input type="text" name="Medical_Keyword_13" placeholder="Medical Keyword 13" /><br>
+          <input type="text" name="Medical_Keyword_14" placeholder="Medical Keyword 14" /><br>
+          <input type="text" name="Medical_Keyword_15" placeholder="Medical Keyword 15" /><br>
+          <input type="text" name="Medical_Keyword_16" placeholder="Medical Keyword 16" /><br>
+          <input type="text" name="Medical_Keyword_17" placeholder="Medical Keyword 17" /><br>
+          <input type="text" name="Medical_Keyword_18" placeholder="Medical Keyword 18" /><br>
+          <input type="text" name="Medical_Keyword_19" placeholder="Medical Keyword 19" /><br>
+          <input type="text" name="Medical_Keyword_20" placeholder="Medical Keyword 20" /><br>
+
+          <input type="text" name="Medical_Keyword_21" placeholder="Medical Keyword 21" /><br>
+          <input type="text" name="Medical_Keyword_22" placeholder="Medical Keyword 22" /><br>
+          <input type="text" name="Medical_Keyword_23" placeholder="Medical Keyword 23" /><br>
+          <input type="text" name="Medical_Keyword_24" placeholder="Medical Keyword 24" /><br>
+          <input type="text" name="Medical_Keyword_25" placeholder="Medical Keyword 25" /><br>
+          <input type="text" name="Medical_Keyword_26" placeholder="Medical Keyword 26" /><br>
+          <input type="text" name="Medical_Keyword_27" placeholder="Medical Keyword 27" /><br>
+          <input type="text" name="Medical_Keyword_28" placeholder="Medical Keyword 28" /><br>
+          <input type="text" name="Medical_Keyword_29" placeholder="Medical Keyword 29" /><br>
+          <input type="text" name="Medical_Keyword_30" placeholder="Medical Keyword 30" /><br>
+
+          <input type="text" name="Medical_Keyword_31" placeholder="Medical Keyword 31" /><br>
+          <input type="text" name="Medical_Keyword_32" placeholder="Medical Keyword 32" /><br>
+          <input type="text" name="Medical_Keyword_33" placeholder="Medical Keyword 33" /><br>
+          <input type="text" name="Medical_Keyword_34" placeholder="Medical Keyword 34" /><br>
+          <input type="text" name="Medical_Keyword_35" placeholder="Medical Keyword 35" /><br>
+          <input type="text" name="Medical_Keyword_36" placeholder="Medical Keyword 36" /><br>
+          <input type="text" name="Medical_Keyword_37" placeholder="Medical Keyword 37" /><br>
+          <input type="text" name="Medical_Keyword_38" placeholder="Medical Keyword 38" /><br>
+          <input type="text" name="Medical_Keyword_39" placeholder="Medical Keyword 39" /><br>
+          <input type="text" name="Medical_Keyword_40" placeholder="Medical Keyword 40" /><br>
+
+          <input type="text" name="Medical_Keyword_41" placeholder="Medical Keyword 41" /><br>
+          <input type="text" name="Medical_Keyword_42" placeholder="Medical Keyword 42" /><br>
+          <input type="text" name="Medical_Keyword_43" placeholder="Medical Keyword 43" /><br>
+          <input type="text" name="Medical_Keyword_44" placeholder="Medical Keyword 44" /><br>
+          <input type="text" name="Medical_Keyword_45" placeholder="Medical Keyword 45" /><br>
+          <input type="text" name="Medical_Keyword_46" placeholder="Medical Keyword 46" /><br>
+          <input type="text" name="Medical_Keyword_47" placeholder="Medical Keyword 47" /><br>
+          <input type="text" name="Medical_Keyword_48" placeholder="Medical Keyword 48" />
+
+          
+        </div>
+        <br>
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <footer>
+      <p>Andrey Purwanto - 67659</p>
+      <!-- <a href="mailto:hege@example.com">hege@example.com</a></p> -->
+    </footer>
+   <br>
+   <br>
+  
+   
+ </div>
+ {{pred}}
+ <script>
+  function personalinfo() {
+    var x = document.getElementById("personalinfodiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function productinfo() {
+    var x = document.getElementById("productinfodiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function product() {
+    var x = document.getElementById("productdiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function employmentinfo() {
+    var x = document.getElementById("employmentinfodiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function insuredinfo() {
+    var x = document.getElementById("insuredinfodiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function insurancehist() {
+    var x = document.getElementById("insurancehistdiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function familyhist() {
+    var x = document.getElementById("familyhistdiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function medicalhist() {
+    var x = document.getElementById("medicalhistdiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  function medicalkey() {
+    var x = document.getElementById("medicalkeydiv");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+  
+  var mybutton = document.getElementById("myBtn");
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      mybutton.style.display = "block";
+    } else {
+      mybutton.style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+</body>
+
+</html>
