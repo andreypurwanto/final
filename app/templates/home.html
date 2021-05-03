@@ -14,14 +14,14 @@
 
 <body>
  <div class="login">
-	<h1>Predict Insurance Bill</h1>
+	<h1>Predict Risk Potential Applicants</h1>
      <!-- Form to enter new data for predictions  -->
     <form action="{{ url_for('predict')}}"method="POST">  
       <input onclick="personalinfo()" name="personalinfo_" type="button" class="btn btn-primary btn-block btn-large" value="Personal Information"></input>
         <div id="personalinfodiv">
-            <input type="text" name="Ins_Age" placeholder="Age" required="required" /><br>
-            <input type="text" name="Wt" placeholder="Weight" required="required" /><br>
-            <input type="text" name="Ht" placeholder="Height" required="required" />
+            <input type="text" name="Ins_Age" placeholder="Age" /><br>
+            <input type="text" name="Wt" placeholder="Weight"  /><br>
+            <input type="text" name="Ht" placeholder="Height"  />
             <!-- <input type="text" name="bmi" placeholder="BMI" required="required" /><br>
             <input type="text" name="children" placeholder="Children" required="required" /><br>
             <input type="text" name="smoker" placeholder="Smoker" required="required" /><br>
@@ -134,8 +134,202 @@
         <br>
         <input onclick="medicalkey()" name="productinfo" type="button" class="btn btn-primary btn-block btn-large" value="Medical Keyword"></input>
         <div id="medicalkeydiv">
-          <input type="text" name="Medical_Keyword_1" placeholder="Medical Keyword 1" /><br>
-          <input type="text" name="Medical_Keyword_2" placeholder="Medical Keyword 2" /><br>
+          <!-- <input type="text" name="Medical_Keyword_1" placeholder="Medical Keyword 1" /><br> -->
+          <label for="Medical_Keyword_1">Medical_Keyword_1:</label> <select type="text" name="Medical_Keyword_1" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 1">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_2">Medical_Keyword_2:</label> <select type="text" name="Medical_Keyword_2" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 2">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_3">Medical_Keyword_3:</label> <select type="text" name="Medical_Keyword_3" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 3">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_4">Medical_Keyword_4:</label> <select type="text" name="Medical_Keyword_4" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 4">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_5">Medical_Keyword_5:</label> <select type="text" name="Medical_Keyword_5" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 5">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_6">Medical_Keyword_6:</label> <select type="text" name="Medical_Keyword_6" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 6">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_7">Medical_Keyword_7:</label> <select type="text" name="Medical_Keyword_7" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 7">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_8">Medical_Keyword_8:</label> <select type="text" name="Medical_Keyword_8" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 8">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_9">Medical_Keyword_9:</label> <select type="text" name="Medical_Keyword_9" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 9">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_10">Medical_Keyword_10:</label> <select type="text" name="Medical_Keyword_10" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 10">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_11">Medical_Keyword_11:</label> <select type="text" name="Medical_Keyword_11" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 11">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_12">Medical_Keyword_12:</label> <select type="text" name="Medical_Keyword_12" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 12">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_13">Medical_Keyword_13:</label> <select type="text" name="Medical_Keyword_13" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 13">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_14">Medical_Keyword_14:</label> <select type="text" name="Medical_Keyword_14" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 14">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_15">Medical_Keyword_15:</label> <select type="text" name="Medical_Keyword_15" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 15">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_16">Medical_Keyword_16:</label> <select type="text" name="Medical_Keyword_16" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 16">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_17">Medical_Keyword_17:</label> <select type="text" name="Medical_Keyword_17" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 17">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_18">Medical_Keyword_18:</label> <select type="text" name="Medical_Keyword_18" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 18">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_19">Medical_Keyword_19:</label> <select type="text" name="Medical_Keyword_19" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 19">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_20">Medical_Keyword_20:</label> <select type="text" name="Medical_Keyword_20" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 20">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_21">Medical_Keyword_21:</label> <select type="text" name="Medical_Keyword_21" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 21">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_22">Medical_Keyword_22:</label> <select type="text" name="Medical_Keyword_22" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 22">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_23">Medical_Keyword_23:</label> <select type="text" name="Medical_Keyword_23" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 23">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_24">Medical_Keyword_24:</label> <select type="text" name="Medical_Keyword_24" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 24">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_25">Medical_Keyword_25:</label> <select type="text" name="Medical_Keyword_25" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 25">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_26">Medical_Keyword_26:</label>  <select type="text" name="Medical_Keyword_26" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 26">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_27">Medical_Keyword_27:</label>  <select type="text" name="Medical_Keyword_27" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 27">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_28">Medical_Keyword_28:</label> <select type="text" name="Medical_Keyword_28" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 28">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_29">Medical_Keyword_29:</label>  <select type="text" name="Medical_Keyword_29" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 29">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_30">Medical_Keyword_30:</label> <select type="text" name="Medical_Keyword_30" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 30">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_31">Medical_Keyword_31:</label> <select type="text" name="Medical_Keyword_31" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 31">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_32">Medical_Keyword_32:</label>  <select type="text" name="Medical_Keyword_32" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 32">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_33">Medical_Keyword_33:</label> <select type="text" name="Medical_Keyword_33" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 33">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_34">Medical_Keyword_34:</label> <select type="text" name="Medical_Keyword_34" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 34">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_35">Medical_Keyword_35:</label>  <select type="text" name="Medical_Keyword_35" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 35">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_36">Medical_Keyword_36:</label>  <select type="text" name="Medical_Keyword_36" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 36">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_37">Medical_Keyword_37:</label> <select type="text" name="Medical_Keyword_37" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 37">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_38">Medical_Keyword_38:</label> <select type="text" name="Medical_Keyword_38" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 38">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_39">Medical_Keyword_39:</label> <select type="text" name="Medical_Keyword_39" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 39">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_40">Medical_Keyword_40:</label> <select type="text" name="Medical_Keyword_40" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 40">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_41">Medical_Keyword_41:</label>  <select type="text" name="Medical_Keyword_41" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 41">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_42">Medical_Keyword_42:</label>  <select type="text" name="Medical_Keyword_42" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 42">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_43">Medical_Keyword_43:</label> <select type="text" name="Medical_Keyword_43" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 43">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_44">Medical_Keyword_44:</label> <select type="text" name="Medical_Keyword_44" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 44">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_45">Medical_Keyword_45:</label>  <select type="text" name="Medical_Keyword_45" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 45">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_46">Medical_Keyword_46:</label> <select type="text" name="Medical_Keyword_46" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 46">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_47">Medical_Keyword_47:</label> <select type="text" name="Medical_Keyword_47" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 47">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select><br>
+          <label for="Medical_Keyword_48">Medical_Keyword_48:</label>  <select type="text" name="Medical_Keyword_48" class="btn2 btn-primary2 btn-block btn-large2" placeholder="Medical Keyword 48">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+          
+
+          <!-- <input type="text" name="Medical_Keyword_2" placeholder="Medical Keyword 2" /><br>
           <input type="text" name="Medical_Keyword_3" placeholder="Medical Keyword 3" /><br>
           <input type="text" name="Medical_Keyword_4" placeholder="Medical Keyword 4" /><br>
           <input type="text" name="Medical_Keyword_5" placeholder="Medical Keyword 5" /><br>
@@ -185,7 +379,7 @@
           <input type="text" name="Medical_Keyword_45" placeholder="Medical Keyword 45" /><br>
           <input type="text" name="Medical_Keyword_46" placeholder="Medical Keyword 46" /><br>
           <input type="text" name="Medical_Keyword_47" placeholder="Medical Keyword 47" /><br>
-          <input type="text" name="Medical_Keyword_48" placeholder="Medical Keyword 48" />
+          <input type="text" name="Medical_Keyword_48" placeholder="Medical Keyword 48" /> -->
 
           
         </div>
