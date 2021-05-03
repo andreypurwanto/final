@@ -238,43 +238,46 @@ def home():
     # print(request.form.values())
     return render_template("home.html")
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST', 'GET'])
 def predict():
-    try:
-        df_input = pd.read_csv('default_value.csv', index_col=0)
-        # df_input = pd.read_csv('train_head.csv', index_col=0)
-        df_input = df_input.head()
-        result = request.form
-        for key in request.form:
-            if key in df_input.columns:
-                if key in int_col:
-                    if result[key] != '':
-                        df_input[key] = result[key]
-                        df_input[key] = df_input[key].astype(np.int64) 
-                if key in float_col:
-                    if result[key] != '':
-                        df_input[key] = result[key]
-                        df_input[key] = df_input[key].astype(np.float64)
-        medical = []
-        for item in df_input.columns:
-            if 'Medical_Keyword' in item:
-                medical.append(item)
-        df_input["Medical_Sum"] = df_input.apply(lambda row: row[medical].sum(),axis=1)
-        df_input= df_input.drop(columns = medical)
-        for item in cat:
-            if df_input.Product_Info_2.loc[0] == item:
-                df_input['Product_Info_2'+str('_')+item] = 1
-            else:
-                df_input['Product_Info_2'+str('_')+item] = 0
-        df_input= df_input.drop(columns = ['Product_Info_2'])
+    if request.method == 'POST':
         try:
-            result_pred = xgb.predict(df_input[order])
+            df_input = pd.read_csv('default_value.csv', index_col=0)
+            # df_input = pd.read_csv('train_head.csv', index_col=0)
+            df_input = df_input.head()
+            result = request.form
+            for key in request.form:
+                if key in df_input.columns:
+                    if key in int_col:
+                        if result[key] != '':
+                            df_input[key] = result[key]
+                            df_input[key] = df_input[key].astype(np.int64) 
+                    if key in float_col:
+                        if result[key] != '':
+                            df_input[key] = result[key]
+                            df_input[key] = df_input[key].astype(np.float64)
+            medical = []
+            for item in df_input.columns:
+                if 'Medical_Keyword' in item:
+                    medical.append(item)
+            df_input["Medical_Sum"] = df_input.apply(lambda row: row[medical].sum(),axis=1)
+            df_input= df_input.drop(columns = medical)
+            for item in cat:
+                if df_input.Product_Info_2.loc[0] == item:
+                    df_input['Product_Info_2'+str('_')+item] = 1
+                else:
+                    df_input['Product_Info_2'+str('_')+item] = 0
+            df_input= df_input.drop(columns = ['Product_Info_2'])
+            try:
+                result_pred = xgb.predict(df_input[order])
+            except (Exception) as e:
+                result_pred = e
+            # df_input[order].to_csv('test.csv')
+            return (render_template('home.html',pred='Predicted Customer : {}'.format(result_pred)))
         except (Exception) as e:
-            result_pred = e
-        # df_input[order].to_csv('test.csv')
-        return (render_template('home.html',pred='Predicted Customer : {}'.format(result_pred)))
-    except (Exception) as e:
-        return (render_template('home.html',pred='Error Status : {}'.format(e)))
+            return (render_template('home.html',pred='Error Status : {}'.format(e)))
+    else:
+        return render_template("home.html")
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
