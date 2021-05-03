@@ -4,3 +4,7 @@
 http://andreyfinal.herokuapp.com/ </br>
 or</br>
 http://bit.ly/andreyfinal
+
+## Run
+install requirements </br>
+`python wsgi.py`
