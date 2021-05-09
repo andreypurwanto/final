@@ -7,4 +7,4 @@ http://bit.ly/andreyfinal
 
 ## Run
 install requirements </br>
-`python wsgi.py`
+`gunicorn wsgi:app`
